@@ -80,18 +80,63 @@ int main() {
             break;
         }
     }
- // ????? не продолжает работать
+
+cout << "---------------------------------"<<endl;
+        for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << arr[i][j] << "  ";
+        }
+        cout << "\t";
+        cout << ("%d", column[i]);
+        cout << endl;
+    }
+    cout << endl;
+
+
+ // цикл делит строку матрицы на элементы гравной диагонали
     for (int i=0; i < n; i++){
         for (int j=0; j < n; j++){
-            if (j==i){
-                if (arr[i][j]!=0){
-                    for (int k = 0; k < n; k++){
-                        arr[i][k] /= arr[i][j];
-                    }
+            if (arr[i][j]!=0 && i==j){
+                float head_elem = arr[i][j];
+                for (int k = j; k < n; k++){
+                    arr[i][k] = arr[i][k] / head_elem;
                 }
+                break;
             }
         }
-    }    
+    }
+    
+    // печать измененной матрицы
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << arr[i][j] << "  ";
+        }
+        cout << "\t";
+        cout << ("%d", column[i]);
+        cout << endl;
+    }
+    cout << endl;
+
+    cout << "---------------------------------"<<endl;
+
+    for (int j = 0; j < n; j++) {
+        for (int i = 0; i < n; i++) {
+            float head_elem = arr[i][j];
+            for (int k = i; k < n; k++){
+                arr[j][k] -= head_elem * arr[i][k];
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << arr[i][j] << "  ";
+        }
+        cout << "\t";
+        cout << ("%d", column[i]);
+        cout << endl;
+    }
+    cout << endl;   
 
     for (int i=0; i < n; i++) // освобождение памяти каждого одномерного массива в двумерном массиве - удаление столбцов
         delete [] arr[i];

@@ -1,0 +1,3 @@
+/home/s23380426@unn.global/1_Laba/build/CMakeFiles/main.dir
+/home/s23380426@unn.global/1_Laba/build/CMakeFiles/edit_cache.dir
+/home/s23380426@unn.global/1_Laba/build/CMakeFiles/rebuild_cache.dir
