@@ -47,7 +47,6 @@ void delen(float **arr, float *column, int i, int j, int n){
 }
 
 int main() {
-    srand(time(0));
 
     int n=3; //***
 
