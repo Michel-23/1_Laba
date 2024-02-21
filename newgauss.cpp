@@ -57,7 +57,7 @@ int main() {
     for (int i = 0; i < n; i++) // создание каждого одномерного массива в динамическом двумерном массиве, или иначе - создание столбцов размерность n
         arr[i] = new float[n];
     
-    int data[] = {3,-9,3,2,-4,4,1,8,-18};
+    int data[] = {6,6,1,5,2,6,0,0,2};
     int index = 0;
     for (int i=0; i<n; i++){
         for (int j=0; j<n; j++){
@@ -65,7 +65,7 @@ int main() {
         }
     }
 
-    int data1[] = {-18,-10,35};
+    int data1[] = {2,3,9};
     for (int i=0; i < n; i++){
         column[i] = data1[i];
     }
@@ -109,7 +109,7 @@ int main() {
     printarr(arr, n, column);
 
     // Обратный ход метода Гаусса
-    for (int i = n-1; i > 0; i--){
+    for (int i = n-1; i >= 0; i--){
         x[i] = column[i];
         if (i!=n){
             for (int j = i+1; j < n; j++){
