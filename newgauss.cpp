@@ -57,7 +57,7 @@ int main() {
     for (int i = 0; i < n; i++) // создание каждого одномерного массива в динамическом двумерном массиве, или иначе - создание столбцов размерность n
         arr[i] = new float[n];
     
-    int data[] = {6,6,1,5,2,6,0,0,2};
+    int data[] = {0,0,1,1,0,0,0,1,0};
     int index = 0;
     for (int i=0; i<n; i++){
         for (int j=0; j<n; j++){
@@ -65,7 +65,7 @@ int main() {
         }
     }
 
-    int data1[] = {2,3,9};
+    int data1[] = {1,1,1};
     for (int i=0; i < n; i++){
         column[i] = data1[i];
     }
