@@ -138,7 +138,7 @@ int main() {
     }
 
     cout << "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" << endl;
-
+    cout << "Pogreshnost" << endl;
     for (int i = 0; i < n; i++) {
         cout << rarr[i] << endl;
     }
