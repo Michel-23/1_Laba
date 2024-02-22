@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/s23380426@unn.global/1_Laba/build",
-  "command": "/usr/bin/c++    -std=c++17 -g -o CMakeFiles/main.dir/newgauss.cpp.o -c /home/s23380426@unn.global/1_Laba/newgauss.cpp",
-  "file": "/home/s23380426@unn.global/1_Laba/newgauss.cpp"
+  "command": "/usr/bin/c++    -std=c++17 -g -o CMakeFiles/main.dir/Gauss.cpp.o -c /home/s23380426@unn.global/1_Laba/Gauss.cpp",
+  "file": "/home/s23380426@unn.global/1_Laba/Gauss.cpp"
 }
 ]

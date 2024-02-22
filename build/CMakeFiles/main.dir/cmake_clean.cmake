@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/main.dir/newgauss.cpp.o"
-  "CMakeFiles/main.dir/newgauss.cpp.o.d"
+  "CMakeFiles/main.dir/Gauss.cpp.o"
+  "CMakeFiles/main.dir/Gauss.cpp.o.d"
   "main"
   "main.pdb"
 )

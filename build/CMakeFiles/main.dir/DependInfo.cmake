@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/s23380426@unn.global/1_Laba/newgauss.cpp" "CMakeFiles/main.dir/newgauss.cpp.o" "gcc" "CMakeFiles/main.dir/newgauss.cpp.o.d"
+  "/home/s23380426@unn.global/1_Laba/Gauss.cpp" "CMakeFiles/main.dir/Gauss.cpp.o" "gcc" "CMakeFiles/main.dir/Gauss.cpp.o.d"
   )
 
 # Targets to which this target links.

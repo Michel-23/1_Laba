@@ -129,29 +129,29 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-newgauss.o: newgauss.cpp.o
-.PHONY : newgauss.o
+Gauss.o: Gauss.cpp.o
+.PHONY : Gauss.o
 
 # target to build an object file
-newgauss.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/newgauss.cpp.o
-.PHONY : newgauss.cpp.o
+Gauss.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Gauss.cpp.o
+.PHONY : Gauss.cpp.o
 
-newgauss.i: newgauss.cpp.i
-.PHONY : newgauss.i
+Gauss.i: Gauss.cpp.i
+.PHONY : Gauss.i
 
 # target to preprocess a source file
-newgauss.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/newgauss.cpp.i
-.PHONY : newgauss.cpp.i
+Gauss.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Gauss.cpp.i
+.PHONY : Gauss.cpp.i
 
-newgauss.s: newgauss.cpp.s
-.PHONY : newgauss.s
+Gauss.s: Gauss.cpp.s
+.PHONY : Gauss.s
 
 # target to generate assembly for a file
-newgauss.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/newgauss.cpp.s
-.PHONY : newgauss.cpp.s
+Gauss.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Gauss.cpp.s
+.PHONY : Gauss.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... newgauss.o"
-	@echo "... newgauss.i"
-	@echo "... newgauss.s"
+	@echo "... Gauss.o"
+	@echo "... Gauss.i"
+	@echo "... Gauss.s"
 .PHONY : help
 
 

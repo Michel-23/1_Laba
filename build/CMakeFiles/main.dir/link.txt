@@ -1,1 +1,1 @@
-/usr/bin/c++  -std=c++17 -g CMakeFiles/main.dir/newgauss.cpp.o -o main 
+/usr/bin/c++  -std=c++17 -g CMakeFiles/main.dir/Gauss.cpp.o -o main 

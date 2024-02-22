@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include "math.h"
 using namespace std;
 
 // функция печати матрицы
@@ -49,10 +50,25 @@ void delen(float **arr, float *column, int i, int j, int n){
     }
 }
 
+float opred(float **arr, int n, float op){
+    for (int i=0; i<n; i++){
+        for (int j=0; j<n; j++){
+            if (n==2){
+                op = arr[0][0] * arr[1][1] - arr[0][1] * arr[1][0];
+            }
+            if (n==3){
+                op = arr[0][0]*arr[1][1]*arr[2][2] + arr[0][1]*arr[1][2]*arr[2][0] + arr[0][2]*arr[1][0]*arr[2][1] - arr[0][2]*arr[1][1]*arr[2][0] - arr[0][0]*arr[1][2]*arr[2][1] - arr[0][1]*arr[1][0]*arr[2][2];
+            }
+        }
+    }
+    return op;
+}
+
 int main() {
     srand((time(NULL)));
 
     int n, m;
+    float op;
     float a=0, b=0, c=0, d=0, e=0,g=0;
 
     float ** arr = new float* [n]; // создание динамического двумерного массива на n строк
@@ -68,12 +84,12 @@ int main() {
         for (int i = 0; i < n; i++){
             arr[i] = new float[n]; // выделение памяти для каждой строки двумерного массива / создание одномерных массивов для каждой строки массива arr
             for (int j = 0; j < n; j++){
-                arr[i][j] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 100); // заполнение массива случайными числами от 0 до 100
+                arr[i][j] = 100000 + (static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 9900000)); // заполнение массива случайными числами от 0 до 100
             }
         }
 
         for (int i = 0; i < n; i++){
-            column[i] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 100);
+            column[i] = 100000 + (static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 9900000));
         }
     }
 
@@ -128,9 +144,23 @@ int main() {
         }
     }
 
+    if (m!=0 && m!=1){
+        cout << "error" << endl;
+        return 0;
+    }
+
     // вывод чисел
     cout << "---------------------------------" << endl;
     printarr(arr, n, column);
+
+    opred(arr, n, op);
+    cout << "the determinant is equal to  " << opred(arr, n, op) << endl;
+    
+    float opr = opred(arr, n, op);
+    if (opr == 0){
+        cout << "it is impossible to apply the Gaussian method" << endl;
+        return 0;
+    }
 
     float ** raa = new float* [n]; // массив для запоминания исходной матрицы
 
@@ -176,10 +206,20 @@ int main() {
         }
     }
 
+    // float *t = new float[n];
+
+    // for (int i=0; i<n; i++){ //!!!
+    //     for (int j=0; j<n; j++){
+    //         if (raa[i][j] == 1){
+    //             t[j] = x[i];
+    //         }
+    //     }
+    // }
+
     cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
 
     for (int i = 0; i < n; i++) {
-        cout << "x" << i << " = " << x[i] << endl; //выводим решения
+        cout << "x" << i << " = " << x[i] << endl; //выводим решения !!!
     }
     cout << endl;
 
@@ -190,7 +230,7 @@ int main() {
 
     for (int i=0; i<n; i++){
         for (int j=0; j<n; j++){
-            rarr[i] += raa[i][j] * x[j];
+            rarr[i] += raa[i][j] * x[j]; //!!!
         }
         rarr[i] = column1[i] - rarr[i];
     }
@@ -198,7 +238,7 @@ int main() {
     cout << "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" << endl;
     cout << "Pogreshnost" << endl;
     for (int i = 0; i < n; i++) {
-        cout << rarr[i] << endl;
+        cout << "x" << i << " -> " << fabs(rarr[i]) << endl; //!!!
     }
     cout << endl;
 
@@ -207,6 +247,7 @@ int main() {
     delete [] arr; // освобождение памяти двумерного массива
     delete [] column;
     delete [] x;
+    //delete [] t;
 
     return 0;
 }

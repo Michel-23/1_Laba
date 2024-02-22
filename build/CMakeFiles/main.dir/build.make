@@ -69,28 +69,28 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
-CMakeFiles/main.dir/newgauss.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/newgauss.cpp.o: ../newgauss.cpp
-CMakeFiles/main.dir/newgauss.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s23380426@unn.global/1_Laba/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/newgauss.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/newgauss.cpp.o -MF CMakeFiles/main.dir/newgauss.cpp.o.d -o CMakeFiles/main.dir/newgauss.cpp.o -c /home/s23380426@unn.global/1_Laba/newgauss.cpp
+CMakeFiles/main.dir/Gauss.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/Gauss.cpp.o: ../Gauss.cpp
+CMakeFiles/main.dir/Gauss.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s23380426@unn.global/1_Laba/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/Gauss.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/Gauss.cpp.o -MF CMakeFiles/main.dir/Gauss.cpp.o.d -o CMakeFiles/main.dir/Gauss.cpp.o -c /home/s23380426@unn.global/1_Laba/Gauss.cpp
 
-CMakeFiles/main.dir/newgauss.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/newgauss.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/s23380426@unn.global/1_Laba/newgauss.cpp > CMakeFiles/main.dir/newgauss.cpp.i
+CMakeFiles/main.dir/Gauss.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Gauss.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/s23380426@unn.global/1_Laba/Gauss.cpp > CMakeFiles/main.dir/Gauss.cpp.i
 
-CMakeFiles/main.dir/newgauss.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/newgauss.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/s23380426@unn.global/1_Laba/newgauss.cpp -o CMakeFiles/main.dir/newgauss.cpp.s
+CMakeFiles/main.dir/Gauss.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Gauss.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/s23380426@unn.global/1_Laba/Gauss.cpp -o CMakeFiles/main.dir/Gauss.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/newgauss.cpp.o"
+"CMakeFiles/main.dir/Gauss.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-main: CMakeFiles/main.dir/newgauss.cpp.o
+main: CMakeFiles/main.dir/Gauss.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/s23380426@unn.global/1_Laba/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main"
