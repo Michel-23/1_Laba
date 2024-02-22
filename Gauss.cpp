@@ -5,7 +5,7 @@
 using namespace std;
 
 // функция печати матрицы
-void printarr(float **arr, int n, float *column){
+void printarr(double **arr, int n, double *column){
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cout << arr[i][j] << " ";
@@ -18,7 +18,7 @@ void printarr(float **arr, int n, float *column){
 }
 
 // функция перестановки строчек
-void perest(float **arr, int i, int n){
+void perest(double **arr, int i, int n){
     for(int h=i+1; h<n; h++){ // смотрим строчки ниже 
         if(arr[h][i] != 0){ // если нашелся ненулевой элемент
             for (int s=0; s<n; s++){ // цикл по столбцам (проверка их на 0)
@@ -32,8 +32,8 @@ void perest(float **arr, int i, int n){
 }
 
 //функция делния строчки на элемент главной диагонали
-void delen(float **arr, float *column, int i, int j, int n){
-    float head_elem = arr[i][j]; // это главный элемент
+void delen(double **arr, double *column, int i, int j, int n){
+    double head_elem = arr[i][j]; // это главный элемент
     for (int k = j; k < n; k++){
         arr[i][k] = arr[i][k] / head_elem; // идем по строке с главным элементом и делим ее на него
     }
@@ -41,7 +41,7 @@ void delen(float **arr, float *column, int i, int j, int n){
     column[i] = column[i] / head_elem; // деление столбца b
 
     for (int t = i+1 /*строки*/; t < n; t++){
-        float minus = arr[t][i]; // переменная отвечающая за коэффициент умножения - это элементы под главным элементом
+        double minus = arr[t][i]; // переменная отвечающая за коэффициент умножения - это элементы под главным элементом
         for (int c = i /*столбцы*/; c < n; c++){
             arr[t][c] = arr[t][c] - minus * arr[i][c]; //4-4*1
         }
@@ -50,7 +50,7 @@ void delen(float **arr, float *column, int i, int j, int n){
     }
 }
 
-float opred(float **arr, int n, float op){
+double opred(double **arr, int n, double op){
     for (int i=0; i<n; i++){
         for (int j=0; j<n; j++){
             if (n==2){
@@ -68,12 +68,12 @@ int main() {
     srand((time(NULL)));
 
     int n, m;
-    float op;
-    float a=0, b=0, c=0, d=0, e=0,g=0;
+    double op;
+    double a=0, b=0, c=0, d=0, e=0,g=0;
 
-    float ** arr = new float* [n]; // создание динамического двумерного массива на n строк
-    float *column = new float[n]; // создание динамического одномерного массива длины n
-    float *x = new float[n];
+    double ** arr = new double* [n]; // создание динамического двумерного массива на n строк
+    double *column = new double[n]; // создание динамического одномерного массива длины n
+    double *x = new double[n];
     
     cout << "1 = random, 0 = sam" << endl;
     cin >> m;
@@ -82,14 +82,14 @@ int main() {
         n = 2 + (rand() % 2); // генерация размера количества столбцов от 2 до 3
 
         for (int i = 0; i < n; i++){
-            arr[i] = new float[n]; // выделение памяти для каждой строки двумерного массива / создание одномерных массивов для каждой строки массива arr
+            arr[i] = new double[n]; // выделение памяти для каждой строки двумерного массива / создание одномерных массивов для каждой строки массива arr
             for (int j = 0; j < n; j++){
-                arr[i][j] = 100000 + (static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 9900000)); // заполнение массива случайными числами от 0 до 100
+                arr[i][j] =(static_cast<double>(rand()) / static_cast<double>(RAND_MAX / 100)); // заполнение массива случайными числами от 0 до 100
             }
         }
 
         for (int i = 0; i < n; i++){
-            column[i] = 100000 + (static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 9900000));
+            column[i] = (static_cast<double>(rand()) / static_cast<double>(RAND_MAX / 100));
         }
     }
 
@@ -98,7 +98,7 @@ int main() {
         cin >> n;
 
         for (int i = 0; i < n; i++) // создание каждого одномерного массива в динамическом двумерном массиве, или иначе - создание столбцов размерность n
-            arr[i] = new float[n];
+            arr[i] = new double[n];
         
         // заполнение единичной матрицы
         for (int i=0; i < n; i++){
@@ -156,16 +156,16 @@ int main() {
     opred(arr, n, op);
     cout << "the determinant is equal to  " << opred(arr, n, op) << endl;
     
-    float opr = opred(arr, n, op);
+    double opr = opred(arr, n, op);
     if (opr == 0){
         cout << "it is impossible to apply the Gaussian method" << endl;
         return 0;
     }
 
-    float ** raa = new float* [n]; // массив для запоминания исходной матрицы
+    double ** raa = new double* [n]; // массив для запоминания исходной матрицы
 
     for (int i = 0; i < n; i++)
-        raa[i] = new float[n];
+        raa[i] = new double[n];
     
     for (int i = 0; i < n; i++){
         for (int j=0; j < n; j++){
@@ -173,7 +173,7 @@ int main() {
         }
     }
 
-    float *column1 = new float[n]; // массив для запоминания исходного столбца
+    double *column1 = new double[n]; // массив для запоминания исходного столбца
 
     for (int i = 0; i < n; i++){
         column1[i] = column[i];
@@ -200,21 +200,11 @@ int main() {
     for (int i = n-1; i >= 0; i--){
         x[i] = column[i];
         if (i!=n){
-            for (int j = i+1 /*для элементов справв отглавной диагонали в строке*/; j < n; j++){
+            for (int j = i+1; j < n; j++){
                 x[i] = x[i] - x[j] * arr[i][j];
             }
         }
     }
-
-    // float *t = new float[n];
-
-    // for (int i=0; i<n; i++){ //!!!
-    //     for (int j=0; j<n; j++){
-    //         if (raa[i][j] == 1){
-    //             t[j] = x[i];
-    //         }
-    //     }
-    // }
 
     cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
 
@@ -223,9 +213,9 @@ int main() {
     }
     cout << endl;
 
-    float *rarr = new float [n]; // для матрицы погрешностей
+    double *rarr = new double [n]; // для матрицы погрешностей
 
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++)
         rarr[i] = 0;
 
     for (int i=0; i<n; i++){
@@ -247,7 +237,6 @@ int main() {
     delete [] arr; // освобождение памяти двумерного массива
     delete [] column;
     delete [] x;
-    //delete [] t;
 
     return 0;
 }
