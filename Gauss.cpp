@@ -3,6 +3,7 @@
 #include <ctime>
 using namespace std;
 
+// функция печати матрицы
 void printarr(float **arr, int n, float *column){
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -15,31 +16,33 @@ void printarr(float **arr, int n, float *column){
     cout << endl;
 }
 
+// функция перестановки строчек
 void perest(float **arr, int i, int n){
     for(int h=i+1; h<n; h++){ // смотрим строчки ниже 
         if(arr[h][i] != 0){ // если нашелся ненулевой элемент
             for (int s=0; s<n; s++){ // цикл по столбцам (проверка их на 0)
-            int temp = arr[i][s]; // тот самый столбцовый элемент
-            arr[i][s] = arr[h][s]; // всем элементам i-й строки присваиваем значения h-й строки
-            arr[h][s] = temp;
+                int temp = arr[i][s]; // кладем в temp элементы строки, где на главной диагонали обнаружили 0
+                arr[i][s] = arr[h][s]; // всем элементам i-й (где 0) строки присваиваем значения h-й строки
+                arr[h][s] = temp; // поэлементно присваиваем элементам h-й строки элементы i-й
             }
             break;
         }
     }
 }
 
+//функция делния строчки на элемент главной диагонали
 void delen(float **arr, float *column, int i, int j, int n){
-    float head_elem = arr[i][j];
+    float head_elem = arr[i][j]; // это главный элемент
     for (int k = j; k < n; k++){
-        arr[i][k] = arr[i][k] / head_elem;
+        arr[i][k] = arr[i][k] / head_elem; // идем по строке с главным элементом и делим ее на него
     }
 
     column[i] = column[i] / head_elem; // деление столбца b
 
-    for (int t = i+1 /*вертикали треугольника = строки*/; t < n; t++){
-        float minus = arr[t][i]; // переменная отвечающая за коэффициент умножения
-        for (int c = i /*горизонтали треугольника = столбцы*/; c < n; c++){ // строка
-            arr[t][c] = arr[t][c] - minus * arr[i][c];
+    for (int t = i+1 /*строки*/; t < n; t++){
+        float minus = arr[t][i]; // переменная отвечающая за коэффициент умножения - это элементы под главным элементом
+        for (int c = i /*столбцы*/; c < n; c++){
+            arr[t][c] = arr[t][c] - minus * arr[i][c]; //4-4*1
         }
 
         column[t] = column[t] - minus * column[i]; // вычитание элементов столбца b
@@ -47,7 +50,7 @@ void delen(float **arr, float *column, int i, int j, int n){
 }
 
 int main() {
-    srand((time(NULL))); //инициализация генератора случайных чисел
+    srand((time(NULL)));
 
     int n, m;
     float a=0, b=0, c=0, d=0, e=0,g=0;
@@ -63,9 +66,9 @@ int main() {
         n = 2 + (rand() % 2); // генерация размера количества столбцов от 2 до 3
 
         for (int i = 0; i < n; i++){
-        arr[i] = new float[n]; // создание вложенных массивов
+            arr[i] = new float[n]; // выделение памяти для каждой строки двумерного массива / создание одномерных массивов для каждой строки массива arr
             for (int j = 0; j < n; j++){
-            arr[i][j] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 100); // заполнение массива случайными числами от 0 до 100
+                arr[i][j] = static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 100); // заполнение массива случайными числами от 0 до 100
             }
         }
 
@@ -88,8 +91,8 @@ int main() {
                 arr[i][j] = 1;
             else
                 arr[i][j] = 0;
+            }
         }
-    }
 
         // заполнение столбца
         for (int k=0; k < n; k++){
@@ -136,7 +139,7 @@ int main() {
     
     for (int i = 0; i < n; i++){
         for (int j=0; j < n; j++){
-            raa[i][j] = arr[i][j];
+            raa[i][j] = arr[i][j]; // присвоение элементов
         }
     }
 
@@ -167,7 +170,7 @@ int main() {
     for (int i = n-1; i >= 0; i--){
         x[i] = column[i];
         if (i!=n){
-            for (int j = i+1; j < n; j++){
+            for (int j = i+1 /*для элементов справв отглавной диагонали в строке*/; j < n; j++){
                 x[i] = x[i] - x[j] * arr[i][j];
             }
         }
@@ -180,7 +183,7 @@ int main() {
     }
     cout << endl;
 
-    float *rarr = new float [n];
+    float *rarr = new float [n]; // для матрицы погрешностей
 
     for (int i = 0; i < n; i++) 
         rarr[i] = 0;
